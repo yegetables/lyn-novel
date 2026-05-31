@@ -108,7 +108,7 @@ const dropdownVisible = ref(null)
 
 async function fetchNovels() {
   try {
-    const res = await fetch('http://localhost:3001/api/novels')
+    const res = await fetch('/api/novels')
     const data = await res.json()
     novels.value = data.novels || []
   } catch (e) {
@@ -185,7 +185,7 @@ function exportNovel(novel) {
 async function deleteNovel(novelId) {
   if (confirm('确定要删除这本小说吗？')) {
     try {
-      await fetch(`http://localhost:3001/api/novels/${novelId}`, {
+      await fetch(`/api/novels/${novelId}`, {
         method: 'DELETE'
       })
     } catch (e) {
@@ -215,7 +215,7 @@ async function createNovel() {
   }
 
   try {
-    await fetch('http://localhost:3001/api/novels', {
+    await fetch('/api/novels', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(novel)

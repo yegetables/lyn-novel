@@ -627,7 +627,7 @@ watch(() => activeTab.value, (newTab) => {
 onMounted(async () => {
   const novelId = route.params.id
   try {
-    const res = await fetch(`http://localhost:3001/api/novels/${novelId}`)
+    const res = await fetch(`/api/novels/${novelId}`)
     if (res.ok) {
       const novel = await res.json()
       novelData.value = novel
@@ -671,7 +671,7 @@ function handleSave() {
 function saveToServer() {
   saveNovelData()
   isSaving.value = true
-  const apiUrl = 'http://localhost:3001/api/novels'
+  const apiUrl = '/api/novels'
   fetch(apiUrl, {
     method: 'POST',
     headers: {

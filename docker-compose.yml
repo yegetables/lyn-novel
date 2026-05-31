@@ -1,0 +1,17 @@
+services:
+  lyn-novel:
+    build: .
+    container_name: lyn-novel
+    restart: unless-stopped
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./data:/app/server/data
+    environment:
+      - NODE_ENV=production
+    networks:
+      - 1panel-network
+
+networks:
+  1panel-network:
+    external: true

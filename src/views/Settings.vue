@@ -252,7 +252,7 @@ function confirmDeleteAll() {
 
 async function deleteAllNovels() {
   try {
-    const response = await fetch('http://localhost:3001/api/novels', {
+    const response = await fetch('/api/novels', {
       method: 'DELETE'
     })
     
@@ -275,7 +275,8 @@ onMounted(() => {
 <style scoped>
 .settingsContainer {
   width: 1280px;
-  height: 720px;
+  min-height: 720px;
+  height: 100%;
   display: flex;
   flex-direction: column;
   background: #1e1e1e;
